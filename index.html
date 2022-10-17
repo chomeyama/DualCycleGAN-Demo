@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+        <meta name=”twitter:card” content=”summary“>
+        <meta name=”twitter:site” content=”@_riceham“>
+        <meta property='og:type' content="website">
+        <meta property='og:title' content="Dual-CycleGAN Demo">
+        <meta property='og:url' content="https://chomeyama.github.io/DualCycleGAN-Demo/">
+        <meta property='og:description' content="Project demo page.">
+        <meta property="og:image" content="img/me2.jpg">
+        <meta name="description" content="Dual-CycleGAN Demo">
+        <title>Dual-CycleGAN</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
+        <link href="css/style.css" media="all" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="img/me2.ico">
+        <link rel=”canonical” href=”https://chomeyama.github.io/Profile/”>
+</head>
+
+<body>
+
+        <div class="container">
+
+                <header class="header">
+                        <h2><a href="https://chomeyama.github.io/Profile/">Reo YONEYAMA / Home</a></h2>
+                        <nav class="pc-nav">
+                                <ul id="nav">
+                                        <li id="nav"><a href="#abstract">Abstract</a></li>
+                                        <li id="nav"><a href="#demo">Demos</a></li>
+                                        <li id="nav"><a href="#citation">Citation</a></li>
+                                </ul>
+                        </nav>
+                        <nav class="sp-nav">
+                                <ul id="sp-nav">
+                                        <li id="sp-nav"><a href="#abstract">Abstract</a></li>
+                                        <li id="sp-nav"><a href="#demo">Demos</a></li>
+                                        <li id="sp-nav"><a href="#citation">Citation</a></li>
+                                        <li class="close"><span>Close</span></li>
+                                </ul>
+                        </nav>
+                        <div id="hamburger">
+                                <span></span>
+                        </div>
+                </header>
+
+                <div class="main">
+
+                        <div class="paper_info">
+                                <h1>Dual-CycleGAN: Combining Non-Parallel Domain Adaptation and Resampling for
+                                        High-Quality Audio Super-Resolution</h1>
+                                <h2 class="author">Reo Yoneyama<sup>1*</sup>, <a href="https://r9y9.github.io/">Ryuichi
+                                                Yamamoto<sup>2</sup></a>, Kentaro Tachibana<sup>2</sup>
+                                </h2>
+                                <h2><sup>1</sup>Nagoya University, Japan, <sup>2</sup>LINE Corporation, Japan</h2>
+                                <h2><sup>*</sup>Work done during an internship at LINE corporation.</h2>
+                                <h2 style="margin-top: 10px;">Submitted to <a href="">ICASSP 2023</a>
+                                </h2>
+                        </div>
+
+                        <h2 class="sectitle">Abstract</h2>
+                        <div id="abstract" class="section">
+                                <p align="justify"> Neural audio super-resolution models are typically trained on pairs
+                                        of the target domain's low- and high-resolution audio signals.
+                                        Although these methods achieve accurate super-resolution if the acoustic
+                                        characteristics of the input data are similar to those of training data, there
+                                        remain challenges: they suffer from quality degradation for out-of-domain data,
+                                        and paired data is necessary for training.
+                                        To address these problems, we propose an audio super-resolution method that can
+                                        utilize both paired and unpaired data based on two connected cycle consistency
+                                        generative adversarial networks (\textit{Dual-CycleGAN}).
+                                        Our method decomposes super-resolution into domain adaptation and resampling to
+                                        handle acoustic mismatch in the unpaired low- and high-resolution signals,
+                                        Then, those two processes are jointly optimized within the CycleGAN framework.
+                                        Experimental results verify that the proposed method significantly outperforms
+                                        conventional methods when the paired data is not available.</p>
+                                <h3 style="text-align: center;">[<a href="">Paper</a>] [<a href="">Arxiv</a>] [<a
+                                                href="https://github.com/chomeyama/DualCycleGAN">Code</a>]</h3>
+                        </div>
+
+                        <br>
+                        <div class="images1">
+                                <figure>
+                                        <img src="img/overview.png" alt="Dual-CycleGAN"
+                                                title="The overview of proposed Dual-CycleGAN.">
+                                        <figcaption>The overview of proposed Dual-CycleGAN.</figcaption>
+                                </figure>
+                        </div>
+                        <div class="images1">
+                                <figure>
+                                        <img src="img/table1.png" alt="result" title="result">
+                                        <figcaption>The preference test results for SR across different recording
+                                                environments. The domain of LJSpeech [1] corpus to the domain of VCTK
+                                                [2] corpus.</figcaption>
+                                </figure>
+                        </div>
+                        <div class="images1">
+                                <figure>
+                                        <img src="img/table2.png" alt="result" title="result">
+                                        <figcaption>The preference test results for ablation study with the situation of
+                                                SR across different recording environments.</figcaption>
+                                </figure>
+                        </div>
+                        <div class="images1">
+                                <figure>
+                                        <img src="img/table3.png" alt="result" title="result">
+                                        <figcaption>The sound quality MOS test results for SR on TTS-generated speech.
+                                                The TTS-system was VITS [3] trained on VCTK.
+                                        </figcaption>
+                                </figure>
+                        </div>
+                        <div class="images1">
+                                <figure>
+                                        <img src="img/22.05gt.png" alt="spectrogram of ground truth 22.05 kHz"
+                                                title="spectrogram of ground truth">
+                                        <figcaption>Spectrogram of ground truth (GT) LJ001-0056 at 22.05 kHz from
+                                                LJSpeech corpus.</figcaption>
+                                </figure>
+                        </div>
+                        <div class="images1">
+                                <figure>
+                                        <img src="img/wsrglow.png"
+                                                alt="spectrogram of 48 kHz speech up-sampled with WSRGlow"
+                                                title="spectrogram of ground truth">
+                                        <figcaption>Spectrogram of up-sampled LJ001-0056 (16 -> 48 kHz) with WSRGlow
+                                                [4].
+                                        </figcaption>
+                                </figure>
+                        </div>
+                        <div class="images1">
+                                <figure>
+                                        <img src="img/hifigan+.png"
+                                                alt="spectrogram of 48 kHz speech up-sampled with HiFiGAN+"
+                                                title="spectrogram of ground truth">
+                                        <figcaption>Spectrogram of up-sampled LJ001-0056 (16 -> 48 kHz) with HiFiGAN+
+                                                [5].
+                                        </figcaption>
+                                </figure>
+                        </div>
+                        <div class="images1">
+                                <figure>
+                                        <img src="img/dual-cyclegan.png"
+                                                alt="spectrogram of 48 kHz speech up-sampled with Dual-CycleGAN"
+                                                title="spectrogram of ground truth">
+                                        <figcaption>Spectrogram of up-sampled LJ001-0056 (16 -> 48 kHz) with
+                                                Dual-CycleGAN.</figcaption>
+                                </figure>
+                        </div>
+                        <div class="images1">
+                                <figure>
+                                        <img src="img/target.png"
+                                                alt="spectrogram of ground truth 48 kHz speech from target domain"
+                                                title="spectrogram of ground truth">
+                                        <figcaption>Spectrogram of speech from target domain (s5_177 from VCTK corpus).
+                                        </figcaption>
+                                </figure>
+                        </div>
+
+                        <br>
+                        <h2 class="sectitle">Demo 1: SR Across Different Recording Environments</h2>
+                        <div id="demo" class="section">
+
+                                <p>Here we provide up-sampled speech samples (16 kHz -> 48 kHz) using LJSpeech corpus
+                                        [1]. The baselines are WSRGlow [2], HiFiGAN+ [3], and a single CycleGAN [6]
+                                        based non-parallel SR model. WSRGlow and HiFiGAN+, which need parallel data for
+                                        training, were trained on VCTK [5] corpus since the LJSpeech corpus is recorded
+                                        at 22.05 kHz and paired 16 kHz and 48 kHz audio data are unavailable. On the
+                                        other hand, CycleGAN and Dual-CycleGAN were trained on LJSpeech and VCTK in a
+                                        non-parallel training manner. The provided speech samples are randomly selected.
+                                </p>
+                                <br>
+
+                                <table class="audio_table">
+                                        <thead>
+                                                <tr>
+                                                        <th style="text-align: center">Target domain
+                                                                of<br>Dual-CycleGANs</th>
+                                                        <th style="text-align: center">p351_009</th>
+                                                        <th style="text-align: center">p362_010</th>
+                                                        <th style="text-align: center">p364_247</th>
+                                                        <th style="text-align: center">p374_109</th>
+                                                        <th style="text-align: center">p376_099</th>
+                                                        <th style="text-align: center">s5_212</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">GT 48
+                                                                kHz<br>(VCTK corpus)</td>
+                                                        <td style="text-align: center"><audio id="target_0"
+                                                                        src="audio/demo2/48kHz_gt/p351_009.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="target_1"
+                                                                        src="audio/demo2/48kHz_gt/p362_010.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="target_2"
+                                                                        src="audio/demo2/48kHz_gt/p364_247.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="target_3"
+                                                                        src="audio/demo2/48kHz_gt/p374_109.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="target_4"
+                                                                        src="audio/demo2/48kHz_gt/p376_099.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="target_5"
+                                                                        src="audio/demo2/48kHz_gt/s5_212.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+
+                                <table class="audio_table">
+                                        <thead>
+                                                <tr>
+                                                        <th style="text-align: center">Model</th>
+                                                        <th style="text-align: center">LJ001-0056</th>
+                                                        <th style="text-align: center">LJ005-0204</th>
+                                                        <th style="text-align: center">LJ011-0181</th>
+                                                        <th style="text-align: center">LJ019-0317</th>
+                                                        <th style="text-align: center">LJ024-0121</th>
+                                                        <th style="text-align: center">LJ027-0065</th>
+                                                        <th style="text-align: center">LJ030-0114</th>
+                                                        <th style="text-align: center">LJ048-0073</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">GT 16 kHz</td>
+                                                        <td style="text-align: center"><audio id="16kHz_gt_0"
+                                                                        src="audio/demo1/16kHz_gt/LJ001-0056.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_gt_1"
+                                                                        src="audio/demo1/16kHz_gt/LJ005-0204.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_gt_2"
+                                                                        src="audio/demo1/16kHz_gt/LJ011-0181.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_gt_3"
+                                                                        src="audio/demo1/16kHz_gt/LJ019-0317.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_gt_4"
+                                                                        src="audio/demo1/16kHz_gt/LJ024-0121.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_gt_5"
+                                                                        src="audio/demo1/16kHz_gt/LJ027-0065.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_gt_6"
+                                                                        src="audio/demo1/16kHz_gt/LJ030-0114.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_gt_7"
+                                                                        src="audio/demo1/16kHz_gt/LJ048-0073.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">GT 22.05 kHz
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="22.05kHz_gt_0"
+                                                                        src="audio/demo1/22.05kHz_gt/LJ001-0056.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="22.05kHz_gt_1"
+                                                                        src="audio/demo1/22.05kHz_gt/LJ005-0204.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="22.05kHz_gt_2"
+                                                                        src="audio/demo1/22.05kHz_gt/LJ011-0181.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="22.05kHz_gt_3"
+                                                                        src="audio/demo1/22.05kHz_gt/LJ019-0317.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="22.05kHz_gt_4"
+                                                                        src="audio/demo1/22.05kHz_gt/LJ024-0121.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="22.05kHz_gt_5"
+                                                                        src="audio/demo1/22.05kHz_gt/LJ027-0065.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="22.05kHz_gt_6"
+                                                                        src="audio/demo1/22.05kHz_gt/LJ030-0114.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="22.05kHz_gt_7"
+                                                                        src="audio/demo1/22.05kHz_gt/LJ048-0073.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">WSRGlow</td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_0"
+                                                                        src="audio/demo1/sr48kHz_wsrglow/LJ001-0056.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_1"
+                                                                        src="audio/demo1/sr48kHz_wsrglow/LJ005-0204.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_2"
+                                                                        src="audio/demo1/sr48kHz_wsrglow/LJ011-0181.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_3"
+                                                                        src="audio/demo1/sr48kHz_wsrglow/LJ019-0317.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_4"
+                                                                        src="audio/demo1/sr48kHz_wsrglow/LJ024-0121.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_5"
+                                                                        src="audio/demo1/sr48kHz_wsrglow/LJ027-0065.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_6"
+                                                                        src="audio/demo1/sr48kHz_wsrglow/LJ030-0114.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_7"
+                                                                        src="audio/demo1/sr48kHz_wsrglow/LJ048-0073.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">HiFiGAN+</td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_0"
+                                                                        src="audio/demo1/sr48kHz_hifigan+/LJ001-0056.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_1"
+                                                                        src="audio/demo1/sr48kHz_hifigan+/LJ005-0204.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_2"
+                                                                        src="audio/demo1/sr48kHz_hifigan+/LJ011-0181.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_3"
+                                                                        src="audio/demo1/sr48kHz_hifigan+/LJ019-0317.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_4"
+                                                                        src="audio/demo1/sr48kHz_hifigan+/LJ024-0121.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_5"
+                                                                        src="audio/demo1/sr48kHz_hifigan+/LJ027-0065.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_6"
+                                                                        src="audio/demo1/sr48kHz_hifigan+/LJ030-0114.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_7"
+                                                                        src="audio/demo1/sr48kHz_hifigan+/LJ048-0073.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">CycleGAN</td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_cyclegan.12rb.pt100k.ft500k_0"
+                                                                        src="audio/demo1/sr48kHz_cyclegan.12rb.pt100k.ft500k/LJ001-0056.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_cyclegan.12rb.pt100k.ft500k_1"
+                                                                        src="audio/demo1/sr48kHz_cyclegan.12rb.pt100k.ft500k/LJ005-0204.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_cyclegan.12rb.pt100k.ft500k_2"
+                                                                        src="audio/demo1/sr48kHz_cyclegan.12rb.pt100k.ft500k/LJ011-0181.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_cyclegan.12rb.pt100k.ft500k_3"
+                                                                        src="audio/demo1/sr48kHz_cyclegan.12rb.pt100k.ft500k/LJ019-0317.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_cyclegan.12rb.pt100k.ft500k_4"
+                                                                        src="audio/demo1/sr48kHz_cyclegan.12rb.pt100k.ft500k/LJ024-0121.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_cyclegan.12rb.pt100k.ft500k_5"
+                                                                        src="audio/demo1/sr48kHz_cyclegan.12rb.pt100k.ft500k/LJ027-0065.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_cyclegan.12rb.pt100k.ft500k_6"
+                                                                        src="audio/demo1/sr48kHz_cyclegan.12rb.pt100k.ft500k/LJ030-0114.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_cyclegan.12rb.pt100k.ft500k_7"
+                                                                        src="audio/demo1/sr48kHz_cyclegan.12rb.pt100k.ft500k/LJ048-0073.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">Dual-CycleGAN
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_0"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k/LJ001-0056.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_1"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k/LJ005-0204.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_2"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k/LJ011-0181.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_3"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k/LJ019-0317.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_4"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k/LJ024-0121.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_5"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k/LJ027-0065.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_6"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k/LJ030-0114.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_7"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k/LJ048-0073.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">
+                                                                Dual-CycleGAN<br>w/o Fine-tune</td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt600k_0"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt600k/LJ001-0056.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt600k_1"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt600k/LJ005-0204.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt600k_2"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt600k/LJ011-0181.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt600k_3"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt600k/LJ019-0317.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt600k_4"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt600k/LJ024-0121.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt600k_5"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt600k/LJ027-0065.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt600k_6"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt600k/LJ030-0114.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt600k_7"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt600k/LJ048-0073.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">
+                                                                Dual-CycleGAN<br>w/o Mel-loss</td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k.wave_0"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k.wave/LJ001-0056.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k.wave_1"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k.wave/LJ005-0204.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k.wave_2"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k.wave/LJ011-0181.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k.wave_3"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k.wave/LJ019-0317.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k.wave_4"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k.wave/LJ024-0121.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k.wave_5"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k.wave/LJ027-0065.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k.wave_6"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k.wave/LJ030-0114.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k.wave_7"
+                                                                        src="audio/demo1/sr48kHz_dual-cyclegan.pt400k.ft200k.wave/LJ048-0073.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                        </div>
+
+                        <br>
+                        <h2 class="sectitle">Demo 2: SR on TTS Generated Speech</h2>
+                        <div id="demo2" class="section">
+
+                                <p>Here we provide up-sampled speech samples (16 kHz -> 48 kHz) generated from a TTS
+                                        system. We used VITS [3] as the TTS system. The baselines are WSRGlow, HiFiGAN+,
+                                        and a single CycleGAN-based non-parallel SR model. WSRGlow and HiFiGAN+, which
+                                        need parallel data for training, were trained on 16 kHz and 48 kHz recorded
+                                        samples of VCTK corpus since TTS-generated speech has different acoustic
+                                        features from ground truth speech. CycleGAN and Dual-CycleGAN were trained on
+                                        TTS-generated and ground truth VCTK in a non-parallel training manner. The
+                                        provided speech samples are randomly selected.</p>
+                                <br>
+
+                                <table class="audio_table">
+                                        <thead>
+                                                <tr>
+                                                        <th style="text-align: center">Model</th>
+                                                        <th style="text-align: center">p351_008</th>
+                                                        <th style="text-align: center">p361_413</th>
+                                                        <th style="text-align: center">p362_168</th>
+                                                        <th style="text-align: center">p363_023</th>
+                                                        <th style="text-align: center">p364_220</th>
+                                                        <th style="text-align: center">p374_282</th>
+                                                        <th style="text-align: center">p376_022</th>
+                                                        <th style="text-align: center">s5_358</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">VITS 16 kHz
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_vits_0"
+                                                                        src="audio/demo2/16kHz_vits/p351_008.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_vits_1"
+                                                                        src="audio/demo2/16kHz_vits/p361_413.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_vits_2"
+                                                                        src="audio/demo2/16kHz_vits/p362_168.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_vits_3"
+                                                                        src="audio/demo2/16kHz_vits/p363_023.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_vits_4"
+                                                                        src="audio/demo2/16kHz_vits/p364_220.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_vits_5"
+                                                                        src="audio/demo2/16kHz_vits/p374_282.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_vits_6"
+                                                                        src="audio/demo2/16kHz_vits/p376_022.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="16kHz_vits_7"
+                                                                        src="audio/demo2/16kHz_vits/s5_358.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">VITS 48 kHz
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_vits_0"
+                                                                        src="audio/demo2/48kHz_vits/p351_008.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_vits_1"
+                                                                        src="audio/demo2/48kHz_vits/p361_413.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_vits_2"
+                                                                        src="audio/demo2/48kHz_vits/p362_168.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_vits_3"
+                                                                        src="audio/demo2/48kHz_vits/p363_023.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_vits_4"
+                                                                        src="audio/demo2/48kHz_vits/p364_220.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_vits_5"
+                                                                        src="audio/demo2/48kHz_vits/p374_282.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_vits_6"
+                                                                        src="audio/demo2/48kHz_vits/p376_022.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_vits_7"
+                                                                        src="audio/demo2/48kHz_vits/s5_358.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">GT 48 kHz</td>
+                                                        <td style="text-align: center"><audio id="48kHz_gt_0"
+                                                                        src="audio/demo2/48kHz_gt/p351_008.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_gt_1"
+                                                                        src="audio/demo2/48kHz_gt/p361_413.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_gt_2"
+                                                                        src="audio/demo2/48kHz_gt/p362_168.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_gt_3"
+                                                                        src="audio/demo2/48kHz_gt/p363_023.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_gt_4"
+                                                                        src="audio/demo2/48kHz_gt/p364_220.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_gt_5"
+                                                                        src="audio/demo2/48kHz_gt/p374_282.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_gt_6"
+                                                                        src="audio/demo2/48kHz_gt/p376_022.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="48kHz_gt_7"
+                                                                        src="audio/demo2/48kHz_gt/s5_358.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">WSRGlow</td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_0"
+                                                                        src="audio/demo2/sr48kHz_wsrglow/p351_008.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_1"
+                                                                        src="audio/demo2/sr48kHz_wsrglow/p361_413.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_2"
+                                                                        src="audio/demo2/sr48kHz_wsrglow/p362_168.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_3"
+                                                                        src="audio/demo2/sr48kHz_wsrglow/p363_023.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_4"
+                                                                        src="audio/demo2/sr48kHz_wsrglow/p364_220.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_5"
+                                                                        src="audio/demo2/sr48kHz_wsrglow/p374_282.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_6"
+                                                                        src="audio/demo2/sr48kHz_wsrglow/p376_022.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_wsrglow_7"
+                                                                        src="audio/demo2/sr48kHz_wsrglow/s5_358.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">HiFiGAN+</td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_0"
+                                                                        src="audio/demo2/sr48kHz_hifigan+/p351_008.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_1"
+                                                                        src="audio/demo2/sr48kHz_hifigan+/p361_413.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_2"
+                                                                        src="audio/demo2/sr48kHz_hifigan+/p362_168.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_3"
+                                                                        src="audio/demo2/sr48kHz_hifigan+/p363_023.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_4"
+                                                                        src="audio/demo2/sr48kHz_hifigan+/p364_220.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_5"
+                                                                        src="audio/demo2/sr48kHz_hifigan+/p374_282.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_6"
+                                                                        src="audio/demo2/sr48kHz_hifigan+/p376_022.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio id="sr48kHz_hifigan+_7"
+                                                                        src="audio/demo2/sr48kHz_hifigan+/s5_358.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td style="text-align: left" class="method_name">Dual-CycleGAN
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_0"
+                                                                        src="audio/demo2/sr48kHz_dual-cyclegan.pt400k.ft200k/p351_008.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_1"
+                                                                        src="audio/demo2/sr48kHz_dual-cyclegan.pt400k.ft200k/p361_413.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_2"
+                                                                        src="audio/demo2/sr48kHz_dual-cyclegan.pt400k.ft200k/p362_168.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_3"
+                                                                        src="audio/demo2/sr48kHz_dual-cyclegan.pt400k.ft200k/p363_023.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_4"
+                                                                        src="audio/demo2/sr48kHz_dual-cyclegan.pt400k.ft200k/p364_220.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_5"
+                                                                        src="audio/demo2/sr48kHz_dual-cyclegan.pt400k.ft200k/p374_282.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_6"
+                                                                        src="audio/demo2/sr48kHz_dual-cyclegan.pt400k.ft200k/p376_022.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                        <td style="text-align: center"><audio
+                                                                        id="sr48kHz_dual-cyclegan.pt400k.ft200k_7"
+                                                                        src="audio/demo2/sr48kHz_dual-cyclegan.pt400k.ft200k/s5_358.wav"
+                                                                        controls="" preload=""></audio>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                        </div>
+
+                        <h2 class="sectitle">Citation</h2>
+                        <div id="citation" class="section">
+                                <p></p>
+                        </div>
+
+                        <h2 class="sectitle">References</h2>
+                        <div id="references" class="section">
+                                <p>[1] K. Ito and L. Johnson, “The LJ Speech Dataset,” https:
+                                        //keithito.com/LJ-Speech-Dataset/, 2017.
+                                </p>
+                                <p>[2] J. Yamagishi, C. Veaux, and K. MacDonald, “CSTR
+                                        VCTK Corpus: English Multi-speaker Corpus for CSTR
+                                        Voice Cloning Toolkit,” 2019.</p>
+                                <p>[3] J. Kim, J. Kong, and J. Son, “Conditional Variational Autoencoder with
+                                        Adversarial Learning for End-to-End Textto-Speech,” in Proc. ICML, 2021, pp.
+                                        5530–5540.</p>
+                                <p>[4] K. Zhang, Y. Ren, C. Xu, and Z. Zhao, “WSRGlow: A GlowBased Waveform Generative
+                                        Model for Audio SuperResolution,” in Proc. Interspeech, 2021, pp. 1649–1653.</p>
+                                <p>[5] J. Su, Y. Wang, A. Finkelstein, and Z. Jin, “Bandwidth Extension is All You
+                                        Need,” in Proc. ICASSP, 2021, pp. 696–
+                                        700.</p>
+                                <p>[6] J.-Y. Zhu, T. Park, P. Isola, and A. A. Efros, “Unpaired Imageto-Image
+                                        Translation using Cycle-Consistent Adversarial
+                                        Networks,” in Proc. ICCV, 2017.</p>
+                        </div>
+
+                </div>
+
+                <div class="page-top" id="js-page-top">
+                        <span class="material-icons-outlined">expand_less</span>
+                </div>
+
+                <footer>
+                        <a class="copyright">Copyright&copy;2021.</a>
+                        <a href="https://github.com/chomeyama/" target="_blank">
+                                <img class="icon" src="img/github_icon.png" alt="GitHub icon">
+                        </a>
+                        <a href="https://twitter.com/_riceham/" target="_blank">
+                                <img class="icon" src="img/twitter_icon.png" alt="Twitter icon">
+                        </a>
+                </footer>
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script type='text/javascript' src="js/script.js"></script>
+</body>
+
+</html>
