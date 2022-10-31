@@ -49,64 +49,66 @@
                 <div class="main">
 
                         <div class="paper_info">
-                                <h1>Non-parallel High-Quality Audio Super Resolution with Domain Adaptation and
+                                <h1>Nonparallel High-Quality Audio Super Resolution with Domain Adaptation and
                                         Resampling CycleGANs</h1>
                                 <h2 class="author">Reo Yoneyama<sup>1*</sup>, <a href="https://r9y9.github.io/">Ryuichi
-                                                Yamamoto<sup>2</sup></a>, Kentaro Tachibana<sup>2</sup>
+                                                Yamamoto<sup>2</sup></a>, and Kentaro Tachibana<sup>2</sup>
                                 </h2>
                                 <h2><sup>1</sup>Nagoya University, Japan, <sup>2</sup>LINE Corporation, Japan</h2>
-                                <h2><sup>*</sup>Work done during an internship at LINE corporation.</h2>
-                                <h2 style="margin-top: 10px;">Submitted to <a href="">ICASSP 2023</a>
+                                <h2><sup>*</sup>Work performed during an internship at LINE Corporation.</h2>
+                                <h2 style="margin-top: 10px;">Submitted to <a href="https://2023.ieeeicassp.org/">ICASSP
+                                                2023</a>
                                 </h2>
                         </div>
 
                         <h2 class="sectitle">Abstract</h2>
                         <div id="abstract" class="section">
-                                <p align="justify"> Neural audio super-resolution models are typically trained on pairs
-                                        of the target domain's low- and high-resolution audio signals.
-                                        Although these methods achieve accurate super-resolution if the acoustic
-                                        characteristics of the input data are similar to those of training data, there
-                                        remain challenges: they suffer from quality degradation for out-of-domain data,
-                                        and paired data is necessary for training.
-                                        To address these problems, we propose an audio super-resolution method that can
-                                        utilize both paired and unpaired data based on two connected cycle consistency
-                                        generative adversarial networks (\textit{Dual-CycleGAN}).
-                                        Our method decomposes super-resolution into domain adaptation and resampling to
-                                        handle acoustic mismatch in the unpaired low- and high-resolution signals,
-                                        Then, those two processes are jointly optimized within the CycleGAN framework.
-                                        Experimental results verify that the proposed method significantly outperforms
-                                        conventional methods when the paired data is not available.</p>
-                                <h3 style="text-align: center;">[<a href="">Paper</a>] [<a href="">Arxiv</a>] [<a
-                                                href="https://github.com/chomeyama/DualCycleGAN">Code</a>]</h3>
+                                <p align="justify">Neural audio super-resolution models are typically trained on low-
+                                        and high-resolution audio signal pairs. Although these methods achieve highly
+                                        accurate super-resolution if the acoustic characteristics of the input data are
+                                        similar to those of the training data, challenges remain: the models suffer from
+                                        quality degradation for out-of-domain data, and paired data are required for
+                                        training. To address these problems, we propose Dual-CycleGAN, a high-quality
+                                        audio super-resolution method that can utilize unpaired data based on two
+                                        connected cycle consistent generative adversarial networks (CycleGAN). Our
+                                        method decomposes the super-resolution method into domain adaptation and
+                                        resampling processes to handle acoustic mismatch in the unpaired low- and
+                                        high-resolution signals. The two processes are then jointly optimized within the
+                                        CycleGAN framework. Experimental results verify that the proposed method
+                                        significantly outperforms conventional methods when paired data are not
+                                        available.</p>
+                                <h3 style="text-align: center;">[<a href="https://arxiv.org/abs/2210.15887">Arxiv</a>]
+                                        [<a href="https://github.com/chomeyama/DualCycleGAN">Code</a>]</h3>
                         </div>
 
                         <br>
                         <div class="images1">
                                 <figure>
                                         <img src="img/overview.png" alt="Dual-CycleGAN"
-                                                title="The overview of proposed Dual-CycleGAN.">
-                                        <figcaption>The overview of proposed Dual-CycleGAN.</figcaption>
+                                                title="Overview of the proposed Dual-CycleGAN.">
+                                        <figcaption>Overview of the proposed Dual-CycleGAN.</figcaption>
                                 </figure>
                         </div>
                         <div class="images1">
                                 <figure>
-                                        <img src="img/table1.png" alt="result" title="result">
-                                        <figcaption>The preference test results for SR across different recording
+                                        <img src="img/table1.png" alt="result1" title="result1">
+                                        <figcaption>Preference scores for SR across different recording
                                                 environments. The domain of LJSpeech [1] corpus to the domain of VCTK
                                                 [2] corpus.</figcaption>
                                 </figure>
                         </div>
                         <div class="images1">
                                 <figure>
-                                        <img src="img/table2.png" alt="result" title="result">
-                                        <figcaption>The preference test results for ablation study with the situation of
+                                        <img src="img/table2.png" alt="result2" title="result2">
+                                        <figcaption>Preference scores for the ablation study with the situation of
                                                 SR across different recording environments.</figcaption>
                                 </figure>
                         </div>
                         <div class="images1">
                                 <figure>
-                                        <img src="img/table3.png" alt="result" title="result">
-                                        <figcaption>The sound quality MOS test results for SR on TTS-generated speech.
+                                        <img src="img/table3.png" alt="result3" title="result3">
+                                        <figcaption>Sound quality mean opinion score (MOS) test results for SR on
+                                                TTS-generated speech.
                                                 The TTS-system was VITS [3] trained on VCTK.
                                         </figcaption>
                                 </figure>
@@ -132,9 +134,9 @@
                         <div class="images1">
                                 <figure>
                                         <img src="img/hifigan+.png"
-                                                alt="spectrogram of 48 kHz speech up-sampled with HiFiGAN+"
+                                                alt="spectrogram of 48 kHz speech up-sampled with HiFi-GAN+"
                                                 title="spectrogram of ground truth">
-                                        <figcaption>Spectrogram of up-sampled LJ001-0056 (16 -> 48 kHz) with HiFiGAN+
+                                        <figcaption>Spectrogram of up-sampled LJ001-0056 (16 -> 48 kHz) with HiFi-GAN+
                                                 [5].
                                         </figcaption>
                                 </figure>
@@ -163,8 +165,8 @@
                         <div id="demo" class="section">
 
                                 <p>Here we provide up-sampled speech samples (16 kHz -> 48 kHz) using LJSpeech corpus
-                                        [1]. The baselines are WSRGlow [2], HiFiGAN+ [3], and a single CycleGAN [6]
-                                        based non-parallel SR model. WSRGlow and HiFiGAN+, which need parallel data for
+                                        [1]. The baselines are WSRGlow [2], HiFi-GAN+ [3], and a single CycleGAN [6]
+                                        based non-parallel SR model. WSRGlow and HiFi-GAN+, which need parallel data for
                                         training, were trained on VCTK [5] corpus since the LJSpeech corpus is recorded
                                         at 22.05 kHz and paired 16 kHz and 48 kHz audio data are unavailable. On the
                                         other hand, CycleGAN and Dual-CycleGAN were trained on LJSpeech and VCTK in a
@@ -339,7 +341,7 @@
                                                         </td>
                                                 </tr>
                                                 <tr>
-                                                        <td style="text-align: left" class="td_fixed">HiFiGAN+</td>
+                                                        <td style="text-align: left" class="td_fixed">HiFi-GAN+</td>
                                                         <td style="text-align: center"><audio id="sr48kHz_hifigan+_0"
                                                                         src="audio/demo1/sr48kHz_hifigan+/LJ001-0056.wav"
                                                                         controls="" preload=""></audio>
@@ -557,8 +559,9 @@
                         <div id="demo2" class="section">
 
                                 <p>Here we provide up-sampled speech samples (16 kHz -> 48 kHz) generated from a TTS
-                                        system. We used VITS [3] as the TTS system. The baselines are WSRGlow, HiFiGAN+,
-                                        and a single CycleGAN-based non-parallel SR model. WSRGlow and HiFiGAN+, which
+                                        system. We used VITS [3] as the TTS system. The baselines are WSRGlow,
+                                        HiFi-GAN+,
+                                        and a single CycleGAN-based non-parallel SR model. WSRGlow and HiFi-GAN+, which
                                         need parallel data for training, were trained on 16 kHz and 48 kHz recorded
                                         samples of VCTK corpus since TTS-generated speech has different acoustic
                                         features from ground truth speech. CycleGAN and Dual-CycleGAN were trained on
@@ -724,7 +727,7 @@
                                                         </td>
                                                 </tr>
                                                 <tr>
-                                                        <td style="text-align: left" class="td_fixed">HiFiGAN+</td>
+                                                        <td style="text-align: left" class="td_fixed">HiFi-GAN+</td>
                                                         <td style="text-align: center"><audio id="sr48kHz_hifigan+_0"
                                                                         src="audio/demo2/sr48kHz_hifigan+/p351_008.wav"
                                                                         controls="" preload=""></audio>
@@ -839,7 +842,7 @@
                 </div>
 
                 <footer>
-                        <a class="copyright">Copyright&copy;2021.</a>
+                        <a class="copyright">Copyright&copy;2022.</a>
                         <a href="https://github.com/chomeyama/" target="_blank">
                                 <img class="icon" src="img/github_icon.png" alt="GitHub icon">
                         </a>
